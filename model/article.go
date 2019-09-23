@@ -14,6 +14,7 @@ type ArticleInfo struct {
 }
 
 type ArticleDetail struct {
+	Id int64 `db:"id"`
 	ArticleInfo
 	Content string `db:"content"`
 	Category

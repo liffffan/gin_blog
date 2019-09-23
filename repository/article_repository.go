@@ -51,14 +51,13 @@ func GetRelativeArticle(articleId int64) (articleList []*model.RelativeArticle, 
 }
 
 func GetArticleDetail(articleId int64) (articleDetail *model.ArticleDetail, err error) {
-	sqlstr := "select id, summary, title, view_count, create_time, comment_count, username from article where id = ?"
+	sqlstr := "select id, summary, title, view_count, create_time, comment_count, username,category_id, content from article where id = ? and status = 1"
 	articleDetail = &model.ArticleDetail{}
 	err = DB.Get(articleDetail, sqlstr, articleId)
 	if err != nil {
 		err = fmt.Errorf("get article failed, err:%v\n", err)
 		return
 	}
-	fmt.Printf("article_info:%#v\n", articleDetail)
 	return
 }
 
@@ -92,7 +91,7 @@ func GetNextArticleById(articleId int64) (nextArticle *model.RelativeArticle, er
 		ArticleId: -1,
 	}
 	sqlstr := "select id, title from article where id > ? order by id asc limit 1"
-	err = DB.Get(&nextArticle, sqlstr, articleId)
+	err = DB.Get(nextArticle, sqlstr, articleId)
 	if err != nil {
 		return
 	}

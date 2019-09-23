@@ -33,7 +33,7 @@ func GetCommentList(articleId int64) (commentList []*model.Comment, err error) {
 		return
 	}
 
-	//2. 调用dal GetCommentList获取评论列表
-	commentList, err = repository.GetCommentList(articleId, 0, 100)
+	//2. 调用 GetCommentList 获取评论列表
+	commentList, err = repository.GetCommentList(articleId, 1, 100)
 	return
 }

@@ -81,7 +81,7 @@ func InsertArticle(content, author, title string, categoryId int64) (err error) 
 
 	id, err := repository.InsertArticle(article)
 	if err != nil {
-		fmt.Printf("1 insert article failed, err:%v\n", err)
+		fmt.Printf("insert article failed, err:%v\n", err)
 		return
 	}
 	fmt.Printf("insert artilce success, id:%d, err:%v\n", id, err)
@@ -93,7 +93,7 @@ func GetArticleDetail(articleId int64) (articleDetail *model.ArticleDetail, err 
 
 	articleDetail, err = repository.GetArticleDetail(articleId)
 	if err != nil {
-		fmt.Printf("1 get article detail failed, err:%v\n", err)
+		fmt.Printf("get article detail failed, err:%v\n", err)
 		return
 	}
 	return
@@ -107,7 +107,7 @@ func GetRelativeArticleList(articleId int64) (articleList []*model.RelativeArtic
 
 	articleList, err = repository.GetRelativeArticle(articleId)
 	if err != nil {
-		fmt.Printf("1 get relative article list failed, err:%v\n", err)
+		fmt.Printf("get relative article list failed, err:%v\n", err)
 		return
 	}
 
@@ -123,13 +123,13 @@ func GetPrevAndNextArticleInfo(articleId int64) (prevArticle, nextArticle *model
 
 	prevArticle, err = repository.GetPrevArticleById(articleId)
 	if err != nil {
-		fmt.Printf("1 get prev article failed, err:%v\n", err)
+		fmt.Printf("get prev article failed, err:%v\n", err)
 		return
 	}
 
 	nextArticle, err = repository.GetNextArticleById(articleId)
 	if err != nil {
-		fmt.Printf("1 get pre article failed, err:%v\n", err)
+		fmt.Printf("get pre article failed, err:%v\n", err)
 		return
 	}
 

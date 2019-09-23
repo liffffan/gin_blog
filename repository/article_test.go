@@ -37,6 +37,15 @@ func init() {
 //
 //}
 
+func TestGetArticleDetail(t *testing.T) {
+	articleDetail, err := GetArticleDetail(7)
+	if err != nil {
+		t.Errorf("get article detail failed, err:%v\n", err)
+		return
+	}
+	t.Logf("get article detail success, article:%v\n", articleDetail)
+}
+
 func TestGetArticleList(t *testing.T) {
 	articleList, err := GetArticleList(1, 15)
 	if err != nil {
