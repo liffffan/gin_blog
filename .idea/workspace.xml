@@ -3,10 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="162e6c11-4afe-44bb-b5e1-e2a5b8f408f4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/article.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/article.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/handler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/repository/article_repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/repository/article_repository.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repository/article_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/repository/article_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repository/category_repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/repository/category_repository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repository/comment_repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/repository/comment_repository.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/article_service.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/article_service.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/category_service.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/category_service.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/comment_service.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/comment_service.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />

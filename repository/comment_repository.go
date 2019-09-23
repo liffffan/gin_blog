@@ -1,7 +1,7 @@
 package repository
 
 import (
-	"blog/model"
+	"gin_study_blog/model"
 )
 
 func GetCommentList(articleId int64, pageNum, pageSize int) (commentList []*model.Comment, err error) {

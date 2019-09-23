@@ -1,9 +1,9 @@
 package service
 
 import (
-	"blog/model"
-	"blog/repository"
 	"fmt"
+	"gin_study_blog/model"
+	"gin_study_blog/repository"
 )
 
 func GetAllCategoryList() (categoryList []*model.Category, err error) {

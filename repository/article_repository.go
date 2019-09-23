@@ -1,9 +1,9 @@
 package repository
 
 import (
-	"blog/model"
 	"database/sql"
 	"fmt"
+	"gin_study_blog/model"
 	"time"
 )
 

@@ -1,8 +1,8 @@
 package controller
 
 import (
-	"blog/service"
 	"fmt"
+	"gin_study_blog/service"
 	"github.com/gin-gonic/gin"
 	"net/http"
 	"strconv"

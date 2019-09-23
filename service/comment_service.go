@@ -1,9 +1,9 @@
 package service
 
 import (
-	"blog/model"
-	"blog/repository"
 	"fmt"
+	"gin_study_blog/model"
+	"gin_study_blog/repository"
 )
 
 func GetCommentList(articleId int64) (commentList []*model.Comment, err error) {

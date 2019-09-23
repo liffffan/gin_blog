@@ -1,7 +1,7 @@
 package repository
 
 import (
-	"blog/model"
+	"gin_study_blog/model"
 	"github.com/jmoiron/sqlx"
 )
 

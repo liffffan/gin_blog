@@ -1,8 +1,8 @@
 package main
 
 import (
-	"blog/controller"
-	"blog/repository"
+	"gin_study_blog/controller"
+	"gin_study_blog/repository"
 	"github.com/gin-gonic/gin"
 )
 
