@@ -2,12 +2,13 @@ package repository
 
 import "testing"
 
-func init() {
-	dns := "root:12345678@tcp(localhost:3306)/gin_blog?parseTime=true"
-	err := Init(dns)
+func TestGetCategoryById(t *testing.T) {
+	category, err := GetCategoryById(1)
 	if err != nil {
-		panic(err)
+		t.Errorf("get category failed, err:%v\n", err)
+		return
 	}
+	t.Logf("category:%#v\n", category)
 }
 
 func TestGetCategoryList(t *testing.T) {

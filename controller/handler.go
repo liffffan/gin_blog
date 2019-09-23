@@ -89,13 +89,16 @@ func ArticleSubmit(c *gin.Context) {
 
 func ArticleDetail(c *gin.Context) {
 
+	// 文章 id 是通过 QueryString 提交过来的
 	articleIdStr := c.Query("article_id")
+	// 转成整数
 	articleId, err := strconv.ParseInt(articleIdStr, 10, 64)
 	if err != nil {
 		c.HTML(http.StatusInternalServerError, "views/500.html", nil)
 		return
 	}
 
+	// 获取文章信息
 	articleDetail, err := service.GetArticleDetail(articleId)
 	if err != nil {
 		fmt.Printf("get article detail failed,article_id:%d err:%v\n", articleId, err)
@@ -136,6 +139,26 @@ func ArticleDetail(c *gin.Context) {
 	m["comment_list"] = commentList
 
 	c.HTML(http.StatusOK, "views/detail.html", m)
+}
+
+func CommentSubmit(c *gin.Context) {
+	author := c.PostForm("author")
+	comment := c.PostForm("comment")
+	articleIdStr := c.PostForm("article_id")
+
+	articleId, err := strconv.ParseInt(articleIdStr, 10, 64)
+	if err != nil {
+		c.HTML(http.StatusInternalServerError, "views/500.html", nil)
+		return
+	}
+	err = service.InsertComment(author, comment, articleId)
+	if err != nil {
+		fmt.Printf("insert comment failed, err:%v\n", err)
+	}
+
+	url := fmt.Sprintf("/article/detail/?article_id=%d", articleId)
+	c.Redirect(http.StatusMovedPermanently, url)
+
 }
 
 /*
@@ -213,21 +236,6 @@ func CommentSubmit(c *gin.Context) {
 }
 
 
-func LeaveSubmit(c *gin.Context) {
 
-	comment := c.PostForm("comment")
-	author := c.PostForm("author")
-	email := c.PostForm("email")
-
-	err := logic.InsertLeave(author, email, comment)
-	if err != nil {
-		fmt.Printf("insert leave failed, err:%v\n", err)
-		c.HTML(http.StatusInternalServerError, "views/500.html", nil)
-		return
-	}
-
-	url := fmt.Sprintf("/leave/new/")
-	c.Redirect(http.StatusMovedPermanently, url)
-}
 
 */

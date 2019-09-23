@@ -5,7 +5,7 @@ import (
 )
 
 func init() {
-	dns := "root:12345678@tcp(localhost:3306)/gin_blog?parseTime=true"
+	dns := "root:root@tcp(localhost:3306)/gin_blog?parseTime=true"
 	err := Init(dns)
 	if err != nil {
 		panic(err)
@@ -38,7 +38,7 @@ func init() {
 //}
 
 func TestGetArticleDetail(t *testing.T) {
-	articleDetail, err := GetArticleDetail(7)
+	articleDetail, err := GetArticleDetail(5)
 	if err != nil {
 		t.Errorf("get article detail failed, err:%v\n", err)
 		return

@@ -91,11 +91,22 @@ func InsertArticle(content, author, title string, categoryId int64) (err error) 
 
 func GetArticleDetail(articleId int64) (articleDetail *model.ArticleDetail, err error) {
 
+	// 1.获取文章信息
 	articleDetail, err = repository.GetArticleDetail(articleId)
 	if err != nil {
 		fmt.Printf("get article detail failed, err:%v\n", err)
 		return
 	}
+
+	// 2.获取文章对应的分类信息
+	category, err := repository.GetCategoryById(articleDetail.ArticleInfo.CategoryId)
+	if err != nil {
+		fmt.Printf("get category failed, err:%v\n", err)
+		return
+	}
+
+	// 因为 ArticleDetail 结构体里的 Category 是值类型，而我们获取到的分类是指针类型，如果要赋值的话，要加个 * 来获取指针对应的值信息
+	articleDetail.Category = *category
 	return
 }
 
@@ -124,13 +135,11 @@ func GetPrevAndNextArticleInfo(articleId int64) (prevArticle, nextArticle *model
 	prevArticle, err = repository.GetPrevArticleById(articleId)
 	if err != nil {
 		fmt.Printf("get prev article failed, err:%v\n", err)
-		return
 	}
 
 	nextArticle, err = repository.GetNextArticleById(articleId)
 	if err != nil {
 		fmt.Printf("get pre article failed, err:%v\n", err)
-		return
 	}
 
 	return

@@ -11,7 +11,7 @@ import (
 func main() {
 	router := gin.Default()
 
-	dns := "root:12345678@tcp(localhost:3306)/gin_blog?parseTime=true"
+	dns := "root:root@tcp(localhost:3306)/gin_blog?parseTime=true"
 	err := repository.Init(dns)
 	if err != nil {
 		panic(err)
@@ -32,8 +32,11 @@ func main() {
 	// 文章提交接口
 	router.POST("/article/submit/", controller.ArticleSubmit)
 
-	//文章详情页
+	// 文章详情页
 	router.GET("/article/detail/", controller.ArticleDetail)
+
+	// 提交评论
+	router.POST("/comment/submit/", controller.CommentSubmit)
 
 	/*
 		// 文章上传接口

@@ -1,14 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="162e6c11-4afe-44bb-b5e1-e2a5b8f408f4" name="Default Changelist" comment="" />
+    <list default="true" id="162e6c11-4afe-44bb-b5e1-e2a5b8f408f4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/repository/comment_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/handler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repository/article_repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/repository/article_repository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repository/article_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/repository/article_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repository/category_repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/repository/category_repository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repository/category_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/repository/category_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repository/comment_repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/repository/comment_repository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/article_service.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/article_service.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/category_service.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/category_service.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/comment_service.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/comment_service.go" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="GOROOT" path="/usr/local/go" />
+  <component name="GOROOT" path="C:/Go" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -18,7 +31,9 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
+    <property name="go.vendoring.notification.had.been.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/repository" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -27,6 +42,12 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="go.vgo" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\go\src\gin_study_blog\repository" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -40,7 +61,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Go Build.go build gin_study_blog">
+  <component name="RunManager" selected="Go Test.TestGetArticleList in gin_study_blog/repository">
     <configuration name="go build gin_study_blog" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="gin_study_blog" />
       <working_directory value="$PROJECT_DIR$/" />
@@ -61,10 +82,46 @@
       <pattern value="^TestGetArticleDetail$" />
       <method v="2" />
     </configuration>
+    <configuration name="TestGetArticleList in gin_study_blog/repository" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="gin_study_blog" />
+      <working_directory value="$PROJECT_DIR$/repository" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="gin_study_blog/repository" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
+      <pattern value="^TestGetArticleList$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestGetCommentList in gin_study_blog/repository" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="gin_study_blog" />
+      <working_directory value="$PROJECT_DIR$/repository" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="gin_study_blog/repository" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
+      <pattern value="^TestGetCommentList$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestInsertComment in gin_study_blog/repository" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="gin_study_blog" />
+      <working_directory value="$PROJECT_DIR$/repository" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="gin_study_blog/repository" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
+      <pattern value="^TestInsertComment$" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Build.go build gin_study_blog" />
+        <item itemvalue="Go Test.TestGetArticleList in gin_study_blog/repository" />
         <item itemvalue="Go Test.TestGetArticleDetail in gin_study_blog/repository" />
+        <item itemvalue="Go Build.go build gin_study_blog" />
+        <item itemvalue="Go Test.TestGetCommentList in gin_study_blog/repository" />
+        <item itemvalue="Go Test.TestInsertComment in gin_study_blog/repository" />
       </list>
     </recent_temporary>
   </component>
@@ -87,5 +144,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="博客雏形" />
     <option name="LAST_COMMIT_MESSAGE" value="博客雏形" />
+  </component>
+  <component name="VgoProject">
+    <proxy>https://goproxy.io</proxy>
   </component>
 </project>

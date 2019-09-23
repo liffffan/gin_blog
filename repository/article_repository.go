@@ -16,7 +16,7 @@ func InsertArticle(article *model.ArticleDetail) (articleId int64, err error) {
 
 	sqlstr := "insert into article(content, summary, title, username, category_id, view_count, comment_count, create_time) value(?,?,?,?,?,?,?,?)"
 	result, err := DB.Exec(sqlstr, article.Content, article.Summary,
-		article.Title, article.Username, article.Category.CategoryId, article.ViewCount, article.CommentCount, time.Now())
+		article.Title, article.Username, article.ArticleInfo.CategoryId, article.ViewCount, article.CommentCount, time.Now())
 	if err != nil {
 		return
 	}
@@ -77,7 +77,7 @@ func GetPrevArticleById(articleId int64) (prevArticle *model.RelativeArticle, er
 	prevArticle = &model.RelativeArticle{
 		ArticleId: -1,
 	}
-	sqlstr := "select id, title from article where id < ? order by id desc limit 1"
+	sqlstr := "select id, title from article where id < ? and status = 1 order by id desc limit 1"
 	err = DB.Get(prevArticle, sqlstr, articleId)
 	if err != nil {
 		return
@@ -90,7 +90,7 @@ func GetNextArticleById(articleId int64) (nextArticle *model.RelativeArticle, er
 	nextArticle = &model.RelativeArticle{
 		ArticleId: -1,
 	}
-	sqlstr := "select id, title from article where id > ? order by id asc limit 1"
+	sqlstr := "select id, title from article where id > ? and status = 1 order by id asc limit 1"
 	err = DB.Get(nextArticle, sqlstr, articleId)
 	if err != nil {
 		return

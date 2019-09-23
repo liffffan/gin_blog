@@ -34,6 +34,20 @@ func GetCommentList(articleId int64) (commentList []*model.Comment, err error) {
 	}
 
 	//2. 调用 GetCommentList 获取评论列表
-	commentList, err = repository.GetCommentList(articleId, 1, 100)
+	commentList, err = repository.GetCommentList(articleId, 0, 15)
+	return
+}
+
+func InsertComment(author, content string, articleId int64) (err error) {
+	Comment := &model.Comment{}
+	Comment.Username = author
+	Comment.Content = content
+	Comment.ArticleId = articleId
+
+	err = repository.InsertComment(Comment)
+	if err != nil {
+		err = fmt.Errorf("insert comment failed, err:%v\n", err)
+		return
+	}
 	return
 }
