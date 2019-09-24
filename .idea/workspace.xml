@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="162e6c11-4afe-44bb-b5e1-e2a5b8f408f4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/model/leave.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/repository/leave_repository.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/leave_service.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/gbook.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/handler.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repository/article_repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/repository/article_repository.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repository/comment_repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/repository/comment_repository.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/article_service.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/article_service.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/comment_service.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/comment_service.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.html" afterDir="false" />
-    </list>
+    <list default="true" id="162e6c11-4afe-44bb-b5e1-e2a5b8f408f4" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,7 +163,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="博客雏形" />
-    <option name="LAST_COMMIT_MESSAGE" value="博客雏形" />
+    <MESSAGE value="云标签、bug修复" />
+    <option name="LAST_COMMIT_MESSAGE" value="云标签、bug修复" />
   </component>
   <component name="VgoProject">
     <proxy>https://goproxy.io</proxy>

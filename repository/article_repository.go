@@ -126,7 +126,7 @@ func GetCategoryArticle(categoryId int64, pageNum, pageSize int) (categoryArticl
 		return
 	}
 
-	sqlstr := `select id, summary, title, view_count, create_time, comment_count, username from article where status = 1 and category_id = ? order by create_time desc limit ?,?`
+	sqlstr := `select id, category_id, summary, title, view_count, create_time, comment_count, username from article where status = 1 and category_id = ? order by create_time desc limit ?,?`
 	err = DB.Select(&categoryArticleList, sqlstr, categoryId, pageNum, pageSize)
 	return
 }
