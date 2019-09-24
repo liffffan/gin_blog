@@ -31,7 +31,7 @@ func GetArticleList(pageNum, pageSize int) (articleList []*model.ArticleInfo, er
 		return
 	}
 
-	sqlstr := `select id, summary, title, view_count, create_time, comment_count, username from article where status = 1 order by create_time desc limit ?,?`
+	sqlstr := `select id, category_id, summary, title, view_count, create_time, comment_count, username from article where status = 1 order by create_time desc limit ?,?`
 
 	err = DB.Select(&articleList, sqlstr, pageNum, pageSize)
 	return
@@ -51,7 +51,7 @@ func GetRelativeArticle(articleId int64) (articleList []*model.RelativeArticle, 
 }
 
 func GetArticleDetail(articleId int64) (articleDetail *model.ArticleDetail, err error) {
-	sqlstr := "select id, summary, title, view_count, create_time, comment_count, username,category_id, content from article where id = ? and status = 1"
+	sqlstr := "select id, category_id, summary, title, view_count, create_time, comment_count, username,category_id, content from article where id = ? and status = 1"
 	articleDetail = &model.ArticleDetail{}
 	err = DB.Get(articleDetail, sqlstr, articleId)
 	if err != nil {
@@ -117,5 +117,16 @@ func IsArticleExist(articleId int64) (exists bool, err error) {
 	}
 
 	exists = true
+	return
+}
+
+func GetCategoryArticle(categoryId int64, pageNum, pageSize int) (categoryArticleList []*model.ArticleInfo, err error) {
+	if pageNum < 0 || pageSize < 0 {
+		err = fmt.Errorf("invalid parameter, page_num:%d, page_size:%d", pageNum, pageSize)
+		return
+	}
+
+	sqlstr := `select id, summary, title, view_count, create_time, comment_count, username from article where status = 1 and category_id = ? order by create_time desc limit ?,?`
+	err = DB.Select(&categoryArticleList, sqlstr, categoryId, pageNum, pageSize)
 	return
 }

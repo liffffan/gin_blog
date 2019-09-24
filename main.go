@@ -38,12 +38,19 @@ func main() {
 	// 提交评论
 	router.POST("/comment/submit/", controller.CommentSubmit)
 
+	// 留言页面
+	router.GET("/leave/new/", controller.LeaveNew)
+
+	// 提交留言
+	router.POST("/leave/submit/", controller.LeaveSubmit)
+
+	// 分类云文章
+	router.GET("/category/", controller.CategoryList)
 	/*
 		// 文章上传接口
 		router.POST("/upload/file/", controller.UploadFile)
 
-		// 留言页面
-		router.GET("/leave/new/", controller.LeaveNew)
+
 		// 关于我页面
 		router.GET("/about/me/", controller.AboutMe)
 	*/

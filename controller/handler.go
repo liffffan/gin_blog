@@ -15,13 +15,55 @@ var (
 func IndexHandle(c *gin.Context) {
 
 	articleRecordList, err := service.GetArticleRecordList(0, 15)
+	for _, v := range articleRecordList {
+		fmt.Printf("articlerecord:%#v", v)
+	}
 	if err != nil {
 		fmt.Printf("get article failed, err:%v\n", err)
 		c.HTML(http.StatusInternalServerError, "views/500.html", nil)
 		return
 	}
+	categoryList, err := service.GetAllCategoryList()
+	if err != nil {
+		fmt.Printf("get category list failed, err:%v\n", err)
+		c.HTML(http.StatusInternalServerError, "views/500.html", nil)
+		return
+	}
 
-	c.HTML(http.StatusOK, "views/index.html", articleRecordList)
+	var data map[string]interface{} = make(map[string]interface{}, 10)
+	data["article_list"] = articleRecordList
+	data["category_list"] = categoryList
+
+	c.HTML(http.StatusOK, "views/index.html", data)
+}
+
+func CategoryList(c *gin.Context) {
+	categoryIdStr := c.Query("category_id")
+	categoryId, err := strconv.ParseInt(categoryIdStr, 10, 64)
+	if err != nil {
+		fmt.Printf("invalid parameter, err:%v\n", err)
+		c.HTML(http.StatusInternalServerError, "views/500.html", nil)
+		return
+	}
+
+	articleCategoryList, err := service.GetCategoryArticle(categoryId)
+	if err != nil {
+		fmt.Printf("get category article list failed, err:%v\n", err)
+		c.HTML(http.StatusInternalServerError, "views/500.html", nil)
+		return
+	}
+
+	categoryList, err := service.GetAllCategoryList()
+	if err != nil {
+		fmt.Printf("get category list failed, err:%v\n", err)
+		c.HTML(http.StatusInternalServerError, "views/500.html", nil)
+		return
+	}
+
+	var data map[string]interface{} = make(map[string]interface{}, 10)
+	data["article_list"] = articleCategoryList
+	data["category_list"] = categoryList
+	c.HTML(http.StatusOK, "views/index.html", data)
 }
 
 /*
@@ -142,6 +184,7 @@ func ArticleDetail(c *gin.Context) {
 }
 
 func CommentSubmit(c *gin.Context) {
+	//
 	author := c.PostForm("author")
 	comment := c.PostForm("comment")
 	articleIdStr := c.PostForm("article_id")
@@ -158,6 +201,47 @@ func CommentSubmit(c *gin.Context) {
 
 	url := fmt.Sprintf("/article/detail/?article_id=%d", articleId)
 	c.Redirect(http.StatusMovedPermanently, url)
+
+}
+
+func LeaveNew(c *gin.Context) {
+	//name := c.PostForm("author")
+	//content := c.PostForm("comment")
+	//email := c.PostForm("email")
+	//
+	//err := service.InsertLeave(name, content, email)
+	//if err != nil {
+	//	fmt.Printf("insert leave failed, err:%v\n", err)
+	//	return
+	//}
+
+	leaveList, err := service.GetLeaveList()
+	for _, v := range leaveList {
+		fmt.Printf("leave:%#v\n", v)
+	}
+	if err != nil {
+		fmt.Printf("get leave list failed, err:%v\n", err)
+		c.HTML(http.StatusInternalServerError, "views/500.html", nil)
+		return
+	}
+
+	c.HTML(http.StatusOK, "views/gbook.html", leaveList)
+
+}
+
+func LeaveSubmit(c *gin.Context) {
+	name := c.PostForm("author")
+	content := c.PostForm("comment")
+	email := c.PostForm("email")
+
+	err := service.InsertLeave(name, content, email)
+	if err != nil {
+		fmt.Printf("insert leave failed, err:%v\n", err)
+		c.HTML(http.StatusInternalServerError, "views/500.html", nil)
+		return
+	}
+
+	c.Redirect(http.StatusMovedPermanently, "/leave/new/")
 
 }
 

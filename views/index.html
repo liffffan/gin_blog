@@ -45,18 +45,18 @@
     </header>
     <article>
         <div class="blogs">
-            {{range .}}
+            {{range .article_list}}
                 <li>
-                    <h3 class="blogtitle"><a href="/">{{.Title}}</a></h3>
+                    <h3 class="blogtitle"><a href="/">{{.ArticleInfo.Title}}</a></h3>
                     <div class="bloginfo">
-                        <p>{{.Summary}}</p>
+                        <p>{{.ArticleInfo.Summary}}</p>
                     </div>
                     <div class="autor">
                         <span class="lm"><a href="/category/?category_id={{.Category.CategoryId}}" title="CSS3|Html5" target="_blank" class="classname">{{.CategoryName}}</a></span>
-                        <span class="dtime">{{.CreateTime}}</span>
-                        <span class="viewnum">浏览（{{.ViewCount}}）</span>
-                        <span class="viewnum">评论（{{.CommentCount}}）</span>
-                        <span class="readmore"><a href="/article/detail?article_id={{.Id}}">阅读原文</a></span>
+                        <span class="dtime">{{.ArticleInfo.CreateTime}}</span>
+                        <span class="viewnum">浏览（{{.ArticleInfo.ViewCount}}）</span>
+                        <span class="viewnum">评论（{{.ArticleInfo.CommentCount}}）</span>
+                        <span class="readmore"><a href="/article/detail?article_id={{.ArticleInfo.Id}}">阅读原文</a></span>
                     </div>
                 </li>
             {{end}}

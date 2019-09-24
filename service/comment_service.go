@@ -39,6 +39,18 @@ func GetCommentList(articleId int64) (commentList []*model.Comment, err error) {
 }
 
 func InsertComment(author, content string, articleId int64) (err error) {
+	// 首先检测 article_id 是否合法
+	exist, err := repository.IsArticleExist(articleId)
+	if err != nil {
+		fmt.Printf("query database failed, err:%v\n", err)
+		return
+	}
+
+	if exist == false {
+		err = fmt.Errorf("article id:%d not found", articleId)
+		return
+	}
+
 	Comment := &model.Comment{}
 	Comment.Username = author
 	Comment.Content = content

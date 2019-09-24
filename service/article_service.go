@@ -63,6 +63,45 @@ func GetArticleRecordList(pageNum, pageSize int) (articleRecordList []*model.Art
 	return
 }
 
+func GetCategoryArticle(categoryId int64) (articleRecordList []*model.ArticleRecord, err error) {
+	categoryArticleList, err := repository.GetCategoryArticle(categoryId, 0, 15)
+	if len(categoryArticleList) == 0 {
+		return
+	}
+
+	// 拿到文章所有分类 id 的列表
+	categoryIds := getCategoryIds(categoryArticleList)
+	// 2.从数据库中，获取文章对应的分类信息
+	categoryList, err := repository.GetCategoryList(categoryIds)
+	if err != nil {
+		fmt.Printf("2 get category list failed, err:%v\n", err)
+		return
+	}
+
+	// 聚合数据
+	for _, article := range categoryArticleList {
+		articleRecord := &model.ArticleRecord{
+			ArticleInfo: *article,
+		}
+		categoryId := article.CategoryId
+		for _, category := range categoryList {
+			if categoryId == category.CategoryId {
+				articleRecord.Category = *category
+				break
+			}
+		}
+
+		articleRecordList = append(articleRecordList, articleRecord)
+
+	}
+	return
+	if err != nil {
+		fmt.Printf("get category article list failed, err:%v\n", err)
+		return
+	}
+	return
+}
+
 func InsertArticle(content, author, title string, categoryId int64) (err error) {
 	// 构造一个 ArticleDetail 的结构体
 	//var article *model.ArticleDetail
